@@ -1,0 +1,141 @@
+.achievements-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-bottom: 5rem;
+}
+
+.achievement-card {
+  padding: 2.5rem 1.5rem;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.achievement-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--accent-primary);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.ach-icon {
+  width: 65px;
+  height: 65px;
+  border-radius: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  background: var(--bg-tertiary);
+  transition: all 0.3s ease;
+}
+
+.achievement-card:hover .ach-icon {
+  transform: rotate(5deg);
+}
+
+.ach-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.8rem;
+}
+
+.ach-desc {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* Gallery Slider Styles */
+.achievements-gallery {
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  overflow: hidden;
+  padding: 2rem 0;
+  position: relative;
+}
+
+.achievements-gallery::before,
+.achievements-gallery::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 200px;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.achievements-gallery::before {
+  left: 0;
+  background: linear-gradient(to right, var(--bg-primary), transparent);
+}
+
+.achievements-gallery::after {
+  right: 0;
+  background: linear-gradient(to left, var(--bg-primary), transparent);
+}
+
+.gallery-track {
+  display: flex;
+  width: max-content;
+  gap: 2rem;
+  animation: scroll 55s linear infinite;
+}
+
+.gallery-track:hover {
+  animation-play-state: paused;
+}
+
+.gallery-item {
+  width: 320px;
+  height: 220px;
+  flex-shrink: 0;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  opacity: 0.8;
+  transition: all 0.4s ease;
+}
+
+.gallery-item:hover {
+  opacity: 1;
+  transform: scale(1.05);
+  border-color: var(--accent-primary);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@media (max-width: 768px) {
+  .achievements-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .gallery-item {
+    width: 250px;
+    height: 180px;
+  }
+}
+
+@media (max-width: 576px) {
+  .achievements-grid {
+    grid-template-columns: 1fr;
+  }
+}

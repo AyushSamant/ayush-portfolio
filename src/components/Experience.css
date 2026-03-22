@@ -1,0 +1,137 @@
+.timeline-container {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+
+.timeline-line {
+  position: absolute;
+  top: 0;
+  left: 20px;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(to bottom, var(--accent-primary) 0%, var(--accent-secondary) 100%);
+  opacity: 0.3;
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 3rem;
+  padding-left: 60px;
+}
+
+.timeline-dot {
+  position: absolute;
+  top: 0;
+  left: 6px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--bg-primary);
+  border: 2px solid var(--accent-primary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--accent-primary);
+  z-index: 1;
+}
+
+.timeline-content {
+  padding: 2rem;
+}
+
+.timeline-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.timeline-header h3 {
+  font-size: 1.4rem;
+  color: var(--text-primary);
+}
+
+.timeline-period {
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  color: var(--accent-primary);
+  background: rgba(0, 240, 255, 0.1);
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+}
+
+.timeline-company {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+}
+
+.timeline-desc {
+  padding-left: 1.2rem;
+  color: var(--text-secondary);
+}
+
+.timeline-desc li {
+  margin-bottom: 0.8rem;
+  position: relative;
+  line-height: 1.6;
+}
+
+.timeline-desc li::before {
+  content: '>';
+  position: absolute;
+  left: -1.2rem;
+  color: var(--accent-secondary);
+  font-family: var(--font-mono);
+  font-weight: bold;
+}
+
+.future-item .pulsing-dot {
+  border: 2px dashed var(--accent-secondary);
+  animation: borderPing 2s infinite;
+}
+
+.border-dashed {
+  background: rgba(28, 30, 46, 0.3);
+  border: 1px dashed var(--border-color);
+  padding: 1.5rem 2rem;
+  border-radius: 1rem;
+}
+
+.border-dashed h3 {
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.border-dashed p {
+  color: var(--text-secondary);
+}
+
+@keyframes borderPing {
+  50% { border-color: transparent; }
+}
+
+@media (max-width: 600px) {
+  .timeline-line {
+    left: 15px;
+  }
+  
+  .timeline-dot {
+    left: 0;
+    width: 32px;
+    height: 32px;
+  }
+  
+  .timeline-item {
+    padding-left: 45px;
+  }
+  
+  .timeline-content {
+    padding: 1.5rem;
+  }
+}
